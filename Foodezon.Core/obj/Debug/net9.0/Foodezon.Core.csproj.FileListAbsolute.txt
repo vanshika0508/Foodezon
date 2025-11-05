@@ -9,3 +9,15 @@ C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.dll
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\refint\Foodezon.Core.dll
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.pdb
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\ref\Foodezon.Core.dll
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\bin\Debug\net9.0\Foodezon.Core.deps.json
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\bin\Debug\net9.0\Foodezon.Core.dll
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\bin\Debug\net9.0\Foodezon.Core.pdb
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.AssemblyInfoInputs.cache
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.AssemblyInfo.cs
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.csproj.CoreCompileInputs.cache
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.sourcelink.json
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.dll
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\refint\Foodezon.Core.dll
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.pdb
+c:\Users\brete\Fall 2025\Software Systems\ProgrammingProject\Foodezon\Foodezon.Core\obj\Debug\net9.0\ref\Foodezon.Core.dll

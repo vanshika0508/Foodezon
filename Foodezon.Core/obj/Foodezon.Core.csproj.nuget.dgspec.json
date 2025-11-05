@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vermv\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {}
+    "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vermv\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {
+    "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vermv\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
+        "projectUniqueName": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
         "projectName": "Foodezon.Core",
-        "projectPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
-        "packagesPath": "C:\\Users\\vermv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.Core\\obj\\",
+        "projectPath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
+        "packagesPath": "C:\\Users\\brete\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vermv\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\brete\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
