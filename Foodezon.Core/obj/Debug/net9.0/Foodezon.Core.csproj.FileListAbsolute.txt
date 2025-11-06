@@ -9,3 +9,4 @@ C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.dll
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\refint\Foodezon.Core.dll
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.pdb
 C:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\ref\Foodezon.Core.dll
+c:\Users\vermv\Foodezon\Foodezon.Core\obj\Debug\net9.0\Foodezon.Core.sourcelink.json
