@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using foodezon.Core.Models;
 
 
+
 namespace Foodezon.Core.Models
 {
     public class Order : Base
