@@ -7,14 +7,20 @@ namespace Foodezon.Core.Models
     // For adding a dish to the menu
     public class Dish
     {
-        public int Id { get; set; }
+        [Key]
+        public int DishId { get; set; }
 
+        [Required, StringLength(100)]
         public string Name { get; set; }
 
+        [StringLength(600)]
         public string Details { get; set; }
 
+        [Required]
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
+        [Required]
         public int CategoryId { get; set; }
     }
 }
