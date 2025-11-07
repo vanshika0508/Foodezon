@@ -9,7 +9,7 @@ namespace Foodezon.Core.Models
         [Key]
         public int DiscountId { get; set; }
 
-        [Required, StringLength(50)]
+        [Required, StringLength(30)]
         public string DiscountCode { get; set; }
 
         [Required]
