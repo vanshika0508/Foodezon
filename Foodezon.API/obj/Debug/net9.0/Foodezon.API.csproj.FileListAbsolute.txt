@@ -160,3 +160,4 @@ C:\Users\vermv\Foodezon\Foodezon.API\obj\Debug\net9.0\refint\Foodezon.API.dll
 C:\Users\vermv\Foodezon\Foodezon.API\obj\Debug\net9.0\Foodezon.API.pdb
 C:\Users\vermv\Foodezon\Foodezon.API\obj\Debug\net9.0\Foodezon.API.genruntimeconfig.cache
 C:\Users\vermv\Foodezon\Foodezon.API\obj\Debug\net9.0\ref\Foodezon.API.dll
+C:\Users\vermv\Foodezon\Foodezon.API\obj\Debug\net9.0\Foodezon.API.sourcelink.json

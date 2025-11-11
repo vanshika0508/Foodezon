@@ -15,3 +15,4 @@ C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\refint\Foodezon
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.pdb
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.genruntimeconfig.cache
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\ref\Foodezon.Infrastructure.dll
+C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.sourcelink.json

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Foodezon.Core.Models;
 
-namespace Foodezon.Core.Entities
+namespace Foodezon.Core.Models
 {
     public class Category : Base
     {

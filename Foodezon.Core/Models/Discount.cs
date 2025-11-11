@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 using Foodezon.Core.Models;
 
-namespace foodezon.Core.Models
+namespace Foodezon.Core.Models
 {
     public class Discount : Base
     {
