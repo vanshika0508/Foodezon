@@ -12,7 +12,7 @@ namespace Foodezon.Core.Models
         public string PhoneNumber { get; set; } = string.Empty;
 
         public string Address { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
+        
 
         public UserRole Role { get; set; } = UserRole.Customer;
 
