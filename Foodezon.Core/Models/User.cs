@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Foodezon.Core.Models
 {
-    public abstract class User : Base
+    public  class User : Base
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
@@ -24,6 +24,9 @@ namespace Foodezon.Core.Models
     }
     public enum UserRole
     {
-        Customer
+        Customer,
+
+        Admin
+
     }
 }
