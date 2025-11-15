@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Foodezon.Core.Models;
 
@@ -140,6 +143,38 @@ namespace Foodezon.Infrastructure.Data
                     }
                 );
 
-        }
+             }
+           public override int SaveChanges()
+                {
+                    ApplyAuditInfo();
+                    return base.SaveChanges();
+                }
+
+            public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+            {
+                ApplyAuditInfo();
+                return base.SaveChangesAsync(cancellationToken);
+            }
+
+            private void ApplyAuditInfo()
+            {
+                var entries = ChangeTracker.Entries<Base>();
+
+                var now = DateTime.UtcNow;
+
+                foreach (var entry in entries)
+                {
+                    if (entry.State == EntityState.Added)
+                    {
+                        if (entry.Entity.CreatedAt == default)
+                            entry.Entity.CreatedAt = now;
+                    }
+                    else if (entry.State == EntityState.Modified)
+                    {
+                        entry.Entity.UpdatedAt = now;
+                    }
+    }
+}
+  
     }
 }
