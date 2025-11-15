@@ -118,6 +118,28 @@ namespace Foodezon.Infrastructure.Data
                 entity.Property(d => d.Description).HasMaxLength(100);
                 entity.Property(d => d.Percentage).HasColumnType("decimal(5,2)");
             });
+            
+            modelBuilder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id = 1,
+                    Name = "Indian",
+                    Description = "Indian cuisine"
+                }
+            );
+            modelBuilder.Entity<Dish>().HasData(
+                new Dish
+                    {
+                        Id = 1,
+                        Name = "Paneer Tikka",
+                        Description = "Grilled paneer with spices",
+                        Price = 9.99m,
+                        ImageUrl = "https://example.com/paneer-tikka.jpg",
+                        IsAvailable = true,
+                        CategoryId = 1
+                    }
+                );
+
         }
     }
 }
