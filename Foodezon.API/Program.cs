@@ -16,6 +16,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<IDishService, DishService>();
 
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
