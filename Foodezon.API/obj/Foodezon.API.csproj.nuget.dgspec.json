@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vermv\\Foodezon\\Foodezon.Api\\Foodezon.API.csproj": {}
+    "C:\\Users\\vermv\\Foodezon\\Foodezon.API\\Foodezon.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vermv\\Foodezon\\Foodezon.Api\\Foodezon.API.csproj": {
+    "C:\\Users\\vermv\\Foodezon\\Foodezon.API\\Foodezon.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vermv\\Foodezon\\Foodezon.Api\\Foodezon.API.csproj",
+        "projectUniqueName": "C:\\Users\\vermv\\Foodezon\\Foodezon.API\\Foodezon.API.csproj",
         "projectName": "Foodezon.API",
-        "projectPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.Api\\Foodezon.API.csproj",
+        "projectPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.API\\Foodezon.API.csproj",
         "packagesPath": "C:\\Users\\vermv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.Api\\obj\\",
+        "outputPath": "C:\\Users\\vermv\\Foodezon\\Foodezon.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vermv\\AppData\\Roaming\\NuGet\\NuGet.Config"
