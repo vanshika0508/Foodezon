@@ -155,19 +155,7 @@ namespace Foodezon.Infrastructure.Data
                     Description = "Naan,roti and other breads"
                 }
             );
-            modelBuilder.Entity<Dish>().HasData(
-                new Dish
-                    {
-                        Id = 1,
-                        Name = "Paneer Tikka",
-                        Description = "Grilled paneer with spices",
-                        Price = 9.99m,
-                        ImageUrl = "https://example.com/paneer-tikka.jpg",
-                        IsAvailable = true,
-                        CategoryId = 1
-                    }
-                );
-
+            
              }
            public override int SaveChanges()
                 {
