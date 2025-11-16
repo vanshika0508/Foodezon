@@ -126,8 +126,33 @@ namespace Foodezon.Infrastructure.Data
                 new Category
                 {
                     Id = 1,
-                    Name = "Indian",
-                    Description = "Indian cuisine"
+                    Name = "Beverages",
+                    Description = "Hot and Cold drinks"
+                },
+                 new Category
+                {
+                    Id = 2,
+                    Name = "Appetizer",
+                    Description = "Starters and small bites"
+                },
+                new Category
+                {
+                    Id = 3,
+                    Name = "Mains",
+                    Description = "Main course dishes"
+                },
+               
+                new Category
+                {
+                    Id = 4,
+                    Name = "Desserts",
+                    Description = "Sweet dishes"
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Breads",
+                    Description = "Naan,roti and other breads"
                 }
             );
             modelBuilder.Entity<Dish>().HasData(
