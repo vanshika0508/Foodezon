@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foodezon.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251115194306_FixSeedAndAudit")]
-    partial class FixSeedAndAudit
+    [Migration("20251117200352_SeedCategories")]
+    partial class SeedCategories
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,8 +104,36 @@ namespace Foodezon.Infrastructure.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Indian cuisine",
-                            Name = "Indian"
+                            Description = "Hot and Cold drinks",
+                            Name = "Beverages"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Starters and small bites",
+                            Name = "Appetizer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Main course dishes",
+                            Name = "Mains"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Sweet dishes",
+                            Name = "Desserts"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Naan,roti and other breads",
+                            Name = "Breads"
                         });
                 });
 
@@ -191,19 +219,6 @@ namespace Foodezon.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Dishes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Grilled paneer with spices",
-                            ImageUrl = "https://example.com/paneer-tikka.jpg",
-                            IsAvailable = true,
-                            Name = "Paneer Tikka",
-                            Price = 9.99m
-                        });
                 });
 
             modelBuilder.Entity("Foodezon.Core.Models.Order", b =>
