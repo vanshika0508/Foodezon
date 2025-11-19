@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jxkwX70lPOo=",
+  "dgSpecHash": "rPVa2tDaoXg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.API\\Foodezon.API.csproj",
+  "projectFilePath": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.API\\Foodezon.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brete\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\9.0.10\\microsoft.aspnetcore.jsonpatch.9.0.10.nupkg.sha512",

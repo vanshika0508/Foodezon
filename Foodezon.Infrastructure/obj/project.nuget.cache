@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n+qz74rLAwk=",
+  "dgSpecHash": "BfUxvMUO1s4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Infrastructure\\Foodezon.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Infrastructure\\Foodezon.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brete\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

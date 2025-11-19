@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {}
+    "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {
+    "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
+        "projectUniqueName": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
         "projectName": "Foodezon.Core",
-        "projectPath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
+        "projectPath": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Core\\Foodezon.Core.csproj",
         "packagesPath": "C:\\Users\\brete\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brete\\Fall 2025\\Software Systems\\ProgrammingProject\\Foodezon\\Foodezon.Core\\obj\\",
+        "outputPath": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
