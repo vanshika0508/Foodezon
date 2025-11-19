@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Foodezon.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1616db30e6dfef428ebf5c70b84fae462d4180a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d344e2e2434901400a9200aa193708e6886b68d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Foodezon.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Foodezon.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
