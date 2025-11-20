@@ -63,5 +63,30 @@ namespace Foodezon.API.Controllers
             await _db.SaveChangesAsync();
             return Ok( new { message = "Deleted"});
         }
+
+        // Discounts
+
+        [HttpPost("dish/{dishId:int}/discount")]
+        public async Task<IActionResult> AddDiscount (int dishId, [FromBody] Discount model)
+        {
+            var dish = await _db.Dishes.FindAsync(dishId);
+            if (dish == null) return NotFound();
+
+            model.DishId = dishId;
+            _db.Discounts.Add(model);
+            await _db.SaveChangesAsync();
+            return Ok(model);
+        }
+
+        [HttpDelete("discount/{discountId:int}")]
+        public async Task<IActionResult> DeleteDiscount (int discountId)
+        {
+            var d = await _db.Discounts.FindAsync(discountId);
+            if (d == null) return NotFound();
+
+            _db.Discounts.Remove(d);
+            await _db.SaveChangesAsync();
+            return Ok (new { message = "Discount Removed"});
+        }
     }
 }
