@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BfUxvMUO1s4=",
+  "dgSpecHash": "WVPRxLEHd8k=",
   "success": true,
   "projectFilePath": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon\\Foodezon.Infrastructure\\Foodezon.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.10\\microsoft.entityframeworkcore.relational.9.0.10.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\9.0.10\\microsoft.entityframeworkcore.sqlite.9.0.10.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\9.0.10\\microsoft.entityframeworkcore.sqlite.core.9.0.10.nupkg.sha512",
+    "C:\\Users\\brete\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.0\\microsoft.entityframeworkcore.tools.10.0.0.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.10\\microsoft.extensions.caching.abstractions.9.0.10.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.10\\microsoft.extensions.caching.memory.9.0.10.nupkg.sha512",
     "C:\\Users\\brete\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.10\\microsoft.extensions.configuration.abstractions.9.0.10.nupkg.sha512",
