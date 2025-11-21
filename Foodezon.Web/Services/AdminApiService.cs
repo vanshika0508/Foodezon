@@ -39,6 +39,45 @@ namespace Foodezon.Web.Services
         public async Task<List<Discount>> GetDiscountsForDishAsync(int dishId) =>
             await _http.GetFromJsonAsync<List<Discount>>($"api/admin/dish/{dishId}/discounts");
 
+        public async Task<List<Discount>> GetActiveDiscountsForDishAsync(int dishId) =>
+            await _http.GetFromJsonAsync<List<Discount>>($"api/admin/dish/{dishId}/discounts/active");
+
+        public async Task AddDiscountAsync (int dishId, Discount disc)
+        {
+            var resp = await _http.PostAsJsonAsync($"api/admin/dish/{dishId}/discount", disc);
+            resp.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteDiscountAsync (int discountId)
+        {
+            var resp = await _http.DeleteAsync($"api/admin/discount/{discountId}");
+            resp.EnsureSuccessStatusCode();
+        }
         
+        // Orders
+
+        public async Task<List<Order>> GetOrdersAsync() =>
+            await _http.GetFromJsonAsync<List<Order>>("api/admin/orders");
+
+        public async Task<List<Order>> GetOrderAsync(int orderId) =>
+            await _http.GetFromJsonAsync<Order>("api/admin/orders/{orderId}");
+
+        public async Task CreateOrderAsync (Order order)
+        {
+            var resp = await _http.PutAsJsonAsync($"api/admin/order", order);
+            resp.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateOrderAsync (int orderId, Order order)
+        {
+            var resp = await _http.PutAsJsonAsync($"api/admin/order/{orderId}", order);
+            resp.EnsureSuccessStatusCode();
+        }
+
+        public async Task DeleteOrderAsync (int orderId)
+        {
+            var resp = await _http.DeleteAsync($"api/admin/order/{orderId}");
+            resp.EnsureSuccessStatusCode();
+        }
     }
 }
