@@ -1,0 +1,63 @@
+@model Foodezon.Api.Models.ViewModels.HomeViewModel
+
+<div class="text-center mb-4">
+    <h1 class="display-5">@Model.Greeting</h1>
+    <p class="lead">Craving Indian food? Get it delivered to your door.</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-8 mx-auto">
+        <form method="get" asp-action="Index">
+            <div class="input-group">
+                <input type="text"
+                       class="form-control"
+                       name="searchTerm"
+                       value="@Model.SearchTerm"
+                       placeholder="Search for dishes (e.g. Paneer, Biryani, Chai)..." />
+                <button class="btn btn-danger" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h3>Categories</h3>
+<div class="row mb-4">
+    @foreach (var cat in Model.Categories)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@cat.Name</h5>
+                    <p class="card-text text-muted">@cat.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (Model.SearchResults.Any())
+{
+    <h3>Search Results</h3>
+    <div class="row">
+        @foreach (var dish in Model.SearchResults)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(dish.ImageUrl))
+                    {
+                        <img src="@dish.ImageUrl" class="card-img-top" alt="@dish.Name" />
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@dish.Name</h5>
+                        <p class="card-text text-muted">@dish.Description</p>
+                        <p class="fw-bold">$@dish.Price</p>
+                        <form asp-controller="Menu" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="dishId" value="@dish.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
