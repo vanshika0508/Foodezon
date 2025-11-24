@@ -1,0 +1,61 @@
+@model Foodezon.Api.Models.ViewModels.CartViewModel
+
+<h2>Your Cart</h2>
+
+@if (!Model.Items.Any())
+{
+    <p>Your cart is empty.</p>
+    <a class="btn btn-danger" asp-controller="Menu" asp-action="Index">Browse Menu</a>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dish</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Line Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.DishName</td>
+                <td>
+                    <form asp-action="UpdateQuantity" method="post" class="d-flex">
+                        <input type="hidden" name="dishId" value="@item.DishId" />
+                        <input type="number" name="quantity" value="@item.Quantity" min="1" max="50"
+                               class="form-control form-control-sm me-2" />
+                        <button type="submit" class="btn btn-sm btn-outline-secondary">Update</button>
+                    </form>
+                </td>
+                <td>$@item.UnitPrice</td>
+                <td>$@item.LineTotal</td>
+                <td>
+                    <form asp-action="RemoveItem" method="post">
+                        <input type="hidden" name="dishId" value="@item.DishId" />
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div class="card">
+        <div class="card-body">
+            <p>Subtotal: <strong>$@Model.Subtotal</strong></p>
+            <p>Tax (13%): <strong>$@Model.TaxAmount</strong></p>
+            <p>Delivery: <strong>$@Model.DeliveryFee</strong></p>
+            <hr />
+            <p>Total: <strong>$@Model.Total</strong></p>
+
+            <form asp-action="GoToCheckout" method="post">
+                <button type="submit" class="btn btn-danger">Checkout</button>
+            </form>
+        </div>
+    </div>
+}
