@@ -1,0 +1,52 @@
+@model Foodezon.Api.Models.ViewModels.CheckoutViewModel
+
+<h2>Checkout</h2>
+
+@if (Model.OrderPlaced)
+{
+    <div class="alert alert-success">
+        <h4>Order placed successfully!</h4>
+        <p>Your order number is <strong>@Model.OrderNumber</strong>.</p>
+        <p>Total amount (Cash on delivery): <strong>$@Model.FinalTotal</strong></p>
+    </div>
+
+    <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Back to Home</a>
+}
+else
+{
+    <p>Fill your delivery details and apply any available discount codes. Payment will be <strong>Cash on Delivery</strong>.</p>
+
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label"></label>
+            <textarea asp-for="Address" class="form-control"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DiscountCode" class="form-label"></label>
+            <input asp-for="DiscountCode" class="form-control" />
+            <span asp-validation-for="DiscountCode" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Place Order (Cash on Delivery)</button>
+    </form>
+}
