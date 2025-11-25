@@ -11,10 +11,10 @@ namespace Foodezon.Core.Models
         public int DishId { get; set; }
 
         [Required, StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [StringLength(600)]
-        public string Details { get; set; }
+        public string Details { get; set; } = string.Empty;
 
         [Required]
         [Column(TypeName = "decimal(10,2)")]
@@ -22,5 +22,7 @@ namespace Foodezon.Core.Models
 
         [Required]
         public int CategoryId { get; set; }
+
+        public virtual Category Category{ get; set; }
     }
 }
