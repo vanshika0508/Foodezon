@@ -1,65 +1,68 @@
-
 using Foodezon.Core.DTOs.Cart;
 using Foodezon.Core.Interfaces;
+using Foodezon.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Foodezon.Api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")] // /api/cart
-    public class CartController : ControllerBase
+    public class CartController : BaseMvcController
     {
         private readonly ICartService _cartService;
 
-        public CartController(ICartService cartService)
+        public CartController(ApplicationDbContext context, ICartService cartService)
+            : base(context)
         {
             _cartService = cartService;
         }
 
-        // GET: api/cart/{userId}
-        [HttpGet("{userId:int}")]
-        public async Task<IActionResult> GetCart(int userId)
+        // SHOW CART PAGE
+        [HttpGet("/Cart")]
+        public async Task<IActionResult> Index()
         {
+            var userId = await GetOrCreateUserIdAsync();
             var cart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(cart);
+            return View("Index", cart);
         }
 
-        // POST: api/cart/add
-        [HttpPost("add")]
-        public async Task<IActionResult> AddToCart([FromBody] AddToCartRequestDto request)
+        // ADD TO CART
+        [HttpPost("/Cart/Add")]
+        public async Task<IActionResult> AddToCart(int dishId, int quantity = 1)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (quantity <= 0)
+                quantity = 1;
 
-            var cart = await _cartService.AddToCartAsync(request.UserId, request.DishId, request.Quantity);
-            return Ok(cart);
+            var userId = await GetOrCreateUserIdAsync();
+            await _cartService.AddToCartAsync(userId, dishId, quantity);
+
+            return RedirectToAction("Index", "Menu");
         }
 
-        // PUT: api/cart/update
-        [HttpPut("update")]
-        public async Task<IActionResult> UpdateItem([FromBody] UpdateCartItemRequestDto request)
+        // UPDATE QUANTITY
+        [HttpPost("/Cart/Update")]
+        public async Task<IActionResult> UpdateQuantity(int dishId, int quantity)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var cart = await _cartService.UpdateCartItemAsync(request.UserId, request.DishId, request.Quantity);
-            return Ok(cart);
+            var userId = await GetOrCreateUserIdAsync();
+            await _cartService.UpdateCartItemAsync(userId, dishId, quantity);
+            return RedirectToAction("Index");
         }
 
-        // DELETE: api/cart/{userId}/items/{dishId}
-        [HttpDelete("{userId:int}/items/{dishId:int}")]
-        public async Task<IActionResult> RemoveItem(int userId, int dishId)
+        // REMOVE ITEM
+        [HttpPost("/Cart/Remove")]
+        public async Task<IActionResult> RemoveItem(int dishId)
         {
-            var cart = await _cartService.RemoveItemAsync(userId, dishId);
-            return Ok(cart);
+            var userId = await GetOrCreateUserIdAsync();
+            await _cartService.RemoveItemAsync(userId, dishId);
+            return RedirectToAction("Index");
         }
 
-        // DELETE: api/cart/{userId}/clear
-        [HttpDelete("{userId:int}/clear")]
-        public async Task<IActionResult> ClearCart(int userId)
+        // CLEAR CART
+        [HttpPost("/Cart/Clear")]
+        public async Task<IActionResult> ClearCart()
         {
-            var cart = await _cartService.ClearCartAsync(userId);
-            return Ok(cart);
+            var userId = await GetOrCreateUserIdAsync();
+            await _cartService.ClearCartAsync(userId);
+            return RedirectToAction("Index");
         }
     }
 }
