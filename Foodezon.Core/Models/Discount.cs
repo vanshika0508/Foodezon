@@ -23,6 +23,8 @@ namespace Foodezon.Core.Models
         [Required]
         public int DishId { get; set; }
 
+        public virtual Dish Dish { get; set; }
+
         public bool ActiveStatus => DateTime.Now >= StartDate && DateTime.Now <= EndDate;
     }
 }

@@ -7,8 +7,8 @@ namespace Foodezon.Core.Interfaces
         Task<IEnumerable<Discount>> GetDiscountsAsync();
         Task<Discount> GetByIdAsync (int id);
         Task AddAsync (Discount discount);
-        void Update(Dish dish);
-        void Delete(Dish dish);
+        void Update(Discount discount);
+        void Delete(Discount discount);
         Task<IEnumerable<Discount>> GetActiveDiscountsAsync();
     }
 }
