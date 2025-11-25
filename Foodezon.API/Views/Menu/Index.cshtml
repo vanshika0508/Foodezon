@@ -1,50 +1,69 @@
 @model Foodezon.Api.Models.ViewModels.MenuViewModel
 
-<h2>Menu</h2>
-<p class="text-muted">Browse categories and add items to your cart.</p>
-
-@foreach (var cat in Model.Categories)
-{
-    <h4 class="mt-4">@cat.Name</h4>
-    <div class="row">
-        @if (!cat.Dishes.Any())
-        {
-            <p class="text-muted">No dishes in this category yet.</p>
-        }
-        else
-        {
-            @foreach (var dish in cat.Dishes)
-            {
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100">
-                        @if (!string.IsNullOrEmpty(dish.ImageUrl))
-                        {
-                            <img src="@dish.ImageUrl" class="card-img-top" alt="@dish.Name" />
-                        }
-                        <div class="card-body">
-                            <h5 class="card-title">@dish.Name</h5>
-                            <p class="card-text text-muted">@dish.Description</p>
-                            <p class="fw-bold">$@dish.Price</p>
-                            <form asp-action="AddToCart" method="post">
-                                <input type="hidden" name="dishId" value="@dish.Id" />
-                                <div class="input-group">
-                                    <input type="number"
-                                           name="quantity"
-                                           class="form-control"
-                                           value="1"
-                                           min="1"
-                                           max="50" />
-                                    <button type="submit" class="btn btn-danger">Add</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-    </div>
+@{
+    ViewData["Title"] = "Menu";
 }
 
-<div class="mt-4">
-    <a class="btn btn-outline-danger" asp-controller="CartPage" asp-action="Index">Go to Cart</a>
+<div class="container mt-4">
+
+    <h1 class="mb-3" style="color:#ff7a00;">Our Menu</h1>
+    <p class="text-muted mb-4">
+        Choose from a variety of Indian beverages, appetizers, mains, desserts, and freshly baked breads.
+    </p>
+
+    @foreach (var cat in Model.Categories)
+    {
+        var anchor = cat.Name.Trim().ToLower();
+
+        <div class="mb-5" id="@anchor">
+            <h2 style="color:#cc6200;">@cat.Name</h2>
+            <p class="text-muted">@cat.Description</p>
+
+            <div class="row">
+                @if (cat.Dishes == null || !cat.Dishes.Any())
+                {
+                    <p class="text-muted">No dishes available in this category yet.</p>
+                }
+                else
+                {
+                    @foreach (var dish in cat.Dishes)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm border-0">
+
+                                @if (!string.IsNullOrEmpty(dish.ImageUrl))
+                                {
+                                    <img src="@dish.ImageUrl" class="card-img-top" alt="@dish.Name" />
+                                }
+
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title" style="color:#cc6200;">@dish.Name</h5>
+                                    <p class="card-text text-muted">@dish.Description</p>
+                                    <p class="fw-bold mb-3">$@dish.Price</p>
+
+                                    <form asp-controller="Menu" asp-action="AddToCart" method="post" class="mt-auto">
+                                        <input type="hidden" name="dishId" value="@dish.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit"
+                                                class="btn btn-danger btn-sm w-100">
+                                            Add to Cart
+                                        </button>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+
+    <div class="mt-4">
+        <a asp-controller="CartPage" asp-action="Index" class="btn btn-outline-danger">
+            Go to Cart
+        </a>
+    </div>
+
 </div>

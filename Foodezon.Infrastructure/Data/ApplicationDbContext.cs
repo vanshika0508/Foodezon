@@ -153,6 +153,42 @@ namespace Foodezon.Infrastructure.Data
                     Description = "Naan,roti and other breads"
                 }
             );
+            modelBuilder.Entity<Dish>().HasData(
+                // Beverages (CategoryId = 1)
+                new Dish { Id = 1, Name = "Tea", Description = "Masala chai made with Indian spices and milk.", Price = 2.49m, ImageUrl = "", IsAvailable = true, CategoryId = 1, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 2, Name = "Coffee", Description = "Freshly brewed hot coffee.", Price = 2.99m, ImageUrl = "", IsAvailable = true, CategoryId = 1, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 3, Name = "Ice Tea", Description = "Chilled lemon iced tea.", Price = 3.49m, ImageUrl = "", IsAvailable = true, CategoryId = 1, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 4, Name = "Coca Cola", Description = "Classic fizzy cola drink.", Price = 2.49m, ImageUrl = "", IsAvailable = true, CategoryId = 1, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 5, Name = "Fanta", Description = "Orange flavored soft drink.", Price = 2.49m, ImageUrl = "", IsAvailable = true, CategoryId = 1, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+
+                // Appetizer (CategoryId = 2)
+                new Dish { Id = 6, Name = "Samosa", Description = "Crispy pastry stuffed with spiced potatoes and peas.", Price = 4.99m, ImageUrl = "", IsAvailable = true, CategoryId = 2, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 7, Name = "Pakora", Description = "Mixed vegetable fritters fried till golden.", Price = 5.99m, ImageUrl = "", IsAvailable = true, CategoryId = 2, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 8, Name = "Manchurian", Description = "Crispy vegetable balls tossed in Indo-Chinese sauce.", Price = 8.99m, ImageUrl = "", IsAvailable = true, CategoryId = 2, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 9, Name = "Spring Roll", Description = "Crispy rolls stuffed with veggies and noodles.", Price = 6.49m, ImageUrl = "", IsAvailable = true, CategoryId = 2, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+
+                // Mains (CategoryId = 3)
+                new Dish { Id = 10, Name = "Butter Chicken", Description = "Creamy tomato-based curry with tender chicken pieces.", Price = 15.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 11, Name = "Dal Makhni", Description = "Slow-cooked black lentils in a rich buttery gravy.", Price = 12.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 12, Name = "Khoya Kaju", Description = "Cashew nuts cooked in rich khoya gravy.", Price = 14.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 13, Name = "Malai Methi Matar", Description = "Creamy curry with fenugreek leaves and green peas.", Price = 13.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 14, Name = "Shahi Paneer", Description = "Royal paneer curry in rich cashew and cream gravy.", Price = 13.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 15, Name = "Kadhai Paneer", Description = "Paneer cooked with capsicum and onions in spicy masala.", Price = 13.99m, ImageUrl = "", IsAvailable = true, CategoryId = 3, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+
+                // Desserts (CategoryId = 4)
+                new Dish { Id = 16, Name = "Kulfi", Description = "Traditional Indian ice cream with pistachios and cardamom.", Price = 4.99m, ImageUrl = "", IsAvailable = true, CategoryId = 4, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 17, Name = "Cake", Description = "Soft slice of freshly baked cake.", Price = 5.49m, ImageUrl = "", IsAvailable = true, CategoryId = 4, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 18, Name = "Kheer", Description = "Rice pudding cooked in milk with nuts and cardamom.", Price = 4.49m, ImageUrl = "", IsAvailable = true, CategoryId = 4, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 19, Name = "Halwa", Description = "Warm semolina halwa with ghee and nuts.", Price = 4.99m, ImageUrl = "", IsAvailable = true, CategoryId = 4, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 20, Name = "Falooda", Description = "Cold dessert drink with vermicelli, basil seeds and ice cream.", Price = 6.49m, ImageUrl = "", IsAvailable = true, CategoryId = 4, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+
+                // Breads (CategoryId = 5)
+                new Dish { Id = 21, Name = "Tawa Roti", Description = "Whole wheat flatbread cooked on tawa.", Price = 1.99m, ImageUrl = "", IsAvailable = true, CategoryId = 5, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 22, Name = "Poori", Description = "Deep-fried puffed wheat bread (2 pieces).", Price = 3.99m, ImageUrl = "", IsAvailable = true, CategoryId = 5, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 23, Name = "Garlic Naan", Description = "Tandoor-baked naan topped with garlic and butter.", Price = 3.49m, ImageUrl = "", IsAvailable = true, CategoryId = 5, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 24, Name = "Butter Naan", Description = "Soft leavened naan brushed with butter.", Price = 3.49m, ImageUrl = "", IsAvailable = true, CategoryId = 5, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
+                new Dish { Id = 25, Name = "Tandoori Roti", Description = "Whole wheat roti cooked in tandoor.", Price = 2.49m, ImageUrl = "", IsAvailable = true, CategoryId = 5, CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) }
+            );
             
              }
            public override int SaveChanges()

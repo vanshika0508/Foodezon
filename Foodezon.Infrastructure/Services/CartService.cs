@@ -1,4 +1,3 @@
-
 using Foodezon.Core.DTOs.Cart;
 using Foodezon.Core.Interfaces;
 using Foodezon.Core.Models;
@@ -21,7 +20,7 @@ namespace Foodezon.Infrastructure.Services
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Dish)
-                .SingleOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
             if (cart == null)
             {
@@ -35,42 +34,47 @@ namespace Foodezon.Infrastructure.Services
 
         public async Task<CartDto> AddToCartAsync(int userId, int dishId, int quantity)
         {
+            // Get user's cart
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Dish)
-                .SingleOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
+            // Create cart if missing
             if (cart == null)
             {
                 cart = new Cart { UserId = userId };
                 _context.Carts.Add(cart);
+                await _context.SaveChangesAsync();
             }
 
+            // Check if dish exists
             var dish = await _context.Dishes.FindAsync(dishId);
             if (dish == null || !dish.IsAvailable)
-                throw new System.Exception("Dish not available.");
+                throw new Exception("Dish not available.");
 
+            // Check if cart already has this dish
             var existingItem = cart.CartItems.SingleOrDefault(ci => ci.DishId == dishId);
-            if (existingItem == null)
+
+            if (existingItem != null)
             {
-                existingItem = new CartItem
-                {
-                    DishId = dishId,
-                    Quantity = quantity
-                };
-                cart.CartItems.Add(existingItem);
+                existingItem.Quantity += quantity;
             }
             else
             {
-                existingItem.Quantity += quantity;
+                cart.CartItems.Add(new CartItem
+                {
+                    DishId = dishId,
+                    Quantity = quantity
+                });
             }
 
             await _context.SaveChangesAsync();
 
+            // Reload cart with dish details
             cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Dish)
-                .SingleAsync(c => c.Id == cart.Id);
+                .FirstOrDefaultAsync(c => c.Id == cart.Id);
 
             return MapToCartDto(cart);
         }
@@ -80,14 +84,14 @@ namespace Foodezon.Infrastructure.Services
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Dish)
-                .SingleOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
             if (cart == null)
-                throw new System.Exception("Cart not found.");
+                throw new Exception("Cart not found.");
 
             var item = cart.CartItems.SingleOrDefault(ci => ci.DishId == dishId);
             if (item == null)
-                throw new System.Exception("Item not in cart.");
+                throw new Exception("Item not in cart.");
 
             if (quantity <= 0)
                 cart.CartItems.Remove(item);
@@ -95,7 +99,6 @@ namespace Foodezon.Infrastructure.Services
                 item.Quantity = quantity;
 
             await _context.SaveChangesAsync();
-
             return MapToCartDto(cart);
         }
 
@@ -104,7 +107,7 @@ namespace Foodezon.Infrastructure.Services
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Dish)
-                .SingleOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
             if (cart != null)
             {
@@ -115,8 +118,7 @@ namespace Foodezon.Infrastructure.Services
                     await _context.SaveChangesAsync();
                 }
             }
-
-            if (cart == null)
+            else
             {
                 cart = new Cart { UserId = userId };
                 _context.Carts.Add(cart);
@@ -126,12 +128,11 @@ namespace Foodezon.Infrastructure.Services
             return MapToCartDto(cart);
         }
 
-        public async Task<CartDto> ClearCartAsync(int userId)
+            public async Task<CartDto> ClearCartAsync(int userId)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Dish)
-                .SingleOrDefaultAsync(c => c.UserId == userId);
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
             if (cart != null)
             {
@@ -148,6 +149,7 @@ namespace Foodezon.Infrastructure.Services
             return MapToCartDto(cart);
         }
 
+    
         private CartDto MapToCartDto(Cart cart)
         {
             var items = cart.CartItems.Select(ci => new CartItemDto

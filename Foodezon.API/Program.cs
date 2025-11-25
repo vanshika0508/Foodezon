@@ -24,6 +24,8 @@ builder.Services.AddScoped<IOrderService,OrderService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 //builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
