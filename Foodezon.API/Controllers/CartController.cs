@@ -2,7 +2,6 @@ using Foodezon.Core.DTOs.Cart;
 using Foodezon.Core.Interfaces;
 using Foodezon.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace Foodezon.Api.Controllers
 {
@@ -25,13 +24,10 @@ namespace Foodezon.Api.Controllers
             return View("Index", cart);
         }
 
-        // ADD TO CART
+        // ADD ITEM FROM MENU
         [HttpPost("/Cart/Add")]
         public async Task<IActionResult> AddToCart(int dishId, int quantity = 1)
         {
-            if (quantity <= 0)
-                quantity = 1;
-
             var userId = await GetOrCreateUserIdAsync();
             await _cartService.AddToCartAsync(userId, dishId, quantity);
 

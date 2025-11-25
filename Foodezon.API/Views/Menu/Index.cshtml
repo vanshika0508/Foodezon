@@ -4,66 +4,128 @@
     ViewData["Title"] = "Menu";
 }
 
-<div class="container mt-4">
+<!-- FULLSCREEN BACKGROUND WITH DARK OVERLAY -->
+<div class="menu-bg">
 
-    <h1 class="mb-3" style="color:#ff7a00;">Our Menu</h1>
-    <p class="text-muted mb-4">
-        Choose from a variety of Indian beverages, appetizers, mains, desserts, and freshly baked breads.
-    </p>
+    <div class="container py-5">
 
-    @foreach (var cat in Model.Categories)
-    {
-        var anchor = cat.Name.Trim().ToLower();
+        <div class="text-center mb-5">
+            <h1 class="fw-bold" style="color:#ff7a00; font-size:3rem;">
+                Explore Our Menu
+            </h1>
+            <p class="text-light fs-5">
+                Authentic Indian flavors crafted fresh for you.
+            </p>
+        </div>
 
-        <div class="mb-5" id="@anchor">
-            <h2 style="color:#cc6200;">@cat.Name</h2>
-            <p class="text-muted">@cat.Description</p>
+        @foreach (var cat in Model.Categories)
+        {
+            var anchor = cat.Name.Trim().ToLower();
 
-            <div class="row">
-                @if (cat.Dishes == null || !cat.Dishes.Any())
-                {
-                    <p class="text-muted">No dishes available in this category yet.</p>
-                }
-                else
-                {
-                    @foreach (var dish in cat.Dishes)
+            <div class="mb-5" id="@anchor">
+
+                <h2 class="category-title">@cat.Name</h2>
+                <p class="category-desc">@cat.Description</p>
+
+                <div class="row g-4">
+
+                    @if (cat.Dishes == null || !cat.Dishes.Any())
                     {
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 shadow-sm border-0">
+                        <p class="text-muted">No dishes available yet.</p>
+                    }
+                    else
+                    {
+                        @foreach (var dish in cat.Dishes)
+                        {
+                            <div class="col-md-4">
+                                <div class="dish-card shadow-lg">
 
-                                @if (!string.IsNullOrEmpty(dish.ImageUrl))
-                                {
-                                    <img src="@dish.ImageUrl" class="card-img-top" alt="@dish.Name" />
-                                }
+                                    @if (!string.IsNullOrEmpty(dish.ImageUrl))
+                                    {
+                                        <img src="@dish.ImageUrl" class="dish-img" alt="@dish.Name" />
+                                    }
 
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title" style="color:#cc6200;">@dish.Name</h5>
-                                    <p class="text-muted">@dish.Description</p>
-                                    <p class="fw-bold mb-3">$@dish.Price</p>
+                                    <div class="p-3 d-flex flex-column">
 
-                                    
-                                    <form method="post" action="/Cart/Add" class="mt-auto">
-                                        <input type="hidden" name="dishId" value="@dish.Id" />
-                                        <input type="hidden" name="quantity" value="1" />
-                                        <button type="submit" class="btn btn-danger btn-sm w-100">
-                                            Add to Cart
-                                        </button>
-                                    </form>
+                                        <h5 class="dish-name">@dish.Name</h5>
+                                        <p class="dish-desc">@dish.Description</p>
+
+                                        <p class="dish-price">$@dish.Price</p>
+
+                                        <!-- Quantity Selector -->
+                                        <div class="d-flex align-items-center mb-3">
+                                            <button type="button"
+                                                    class="qty-btn"
+                                                    data-target="qty_@dish.Id"
+                                                    data-change="-1">−</button>
+
+                                            <span id="qty_@dish.Id" class="qty-number">0</span>
+
+                                            <button type="button"
+                                                    class="qty-btn"
+                                                    data-target="qty_@dish.Id"
+                                                    data-change="1">+</button>
+                                        </div>
+
+                                        <!-- Add to Cart -->
+                                        <form method="post" action="/Cart/Add">
+                                            <input type="hidden" name="dishId" value="@dish.Id" />
+                                            <input type="hidden"
+                                                   id="qtyInput_@dish.Id"
+                                                   name="quantity" value="1" />
+
+                                            <button type="submit"
+                                                    class="add-btn"
+                                                    data-dish="@dish.Id">
+                                                Add to Cart
+                                            </button>
+                                        </form>
+
+                                    </div>
 
                                 </div>
-
                             </div>
-                        </div>
+                        }
                     }
-                }
-            </div>
-        </div>
-    }
 
-    <div class="mt-4">
-        <a href="/Cart" class="btn btn-outline-danger">
-            Go to Cart
-        </a>
+                </div>
+            </div>
+        }
+
+        <div class="text-center mt-5">
+            <a href="/Cart" class="cart-button">Go to Cart</a>
+        </div>
+
     </div>
 
 </div>
+
+<!-- FIXED JS -->
+<script>
+    // Quantity Button Logic
+    document.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+
+            const targetId = this.getAttribute("data-target");
+            const change = parseInt(this.getAttribute("data-change"));
+
+            const qtyDisplay = document.getElementById(targetId);
+            const dishId = targetId.split("_")[1];
+            const input = document.getElementById("qtyInput_" + dishId);
+
+            let qty = parseInt(qtyDisplay.textContent);
+            qty += change;
+
+            if (qty < 0) qty = 0;
+
+            qtyDisplay.textContent = qty;
+
+            if (qty === 0)
+                input.value = 1;
+            else
+                input.value = qty;
+        });
+    });
+
+    
+</script>

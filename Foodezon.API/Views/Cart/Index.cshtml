@@ -29,7 +29,7 @@
 
                         @if (!string.IsNullOrEmpty(item.ImageUrl))
                         {
-                            <img src="@item.ImageUrl" class="me-3" 
+                            <img src="@item.ImageUrl" class="me-3"
                                  style="width:80px; height:80px; border-radius:10px;" />
                         }
 
@@ -37,12 +37,11 @@
                             <h5 style="color:#cc6200;">@item.DishName</h5>
                             <p class="text-muted mb-1">Price: $@item.UnitPrice</p>
 
-                            <!-- QUANTITY UPDATE FORM -->
-                            <form asp-controller="CartPage" asp-action="UpdateQuantity" 
-                                  method="post" class="d-flex align-items-center">
+                            <!-- QUANTITY UPDATE -->
+                            <form method="post" action="/Cart/Update" class="d-flex align-items-center">
                                 <input type="hidden" name="dishId" value="@item.DishId" />
 
-                                <button type="submit" 
+                                <button type="submit"
                                         class="btn btn-outline-secondary btn-sm"
                                         name="quantity" value="@(item.Quantity - 1)">
                                     –
@@ -58,8 +57,8 @@
                             </form>
                         </div>
 
-                        <!-- REMOVE ITEM FORM -->
-                        <form asp-controller="CartPage" asp-action="RemoveItem" method="post">
+                        <!-- REMOVE ITEM -->
+                        <form method="post" action="/Cart/Remove">
                             <input type="hidden" name="dishId" value="@item.DishId" />
                             <button type="submit" class="btn btn-danger btn-sm ms-3">
                                 Remove
@@ -73,7 +72,7 @@
 
         </div>
 
-        <!-- SUMMARY SECTION -->
+        <!-- ORDER SUMMARY -->
         <div class="col-md-4">
             <div class="card shadow-sm border-0 p-3">
 
@@ -92,20 +91,17 @@
 
                 <hr />
 
-                <h4>Total: 
+                <h4>Total:
                     <strong style="color:#cc6200;">
                         $@finalTotal.ToString("0.00")
                     </strong>
                 </h4>
 
-                <!-- CHECKOUT BUTTON -->
                 <a href="/Checkout" class="btn btn-danger w-100 mt-3">
                     Proceed to Checkout
                 </a>
 
-                <!-- CLEAR CART BUTTON -->
-                <form asp-controller="CartPage" asp-action="ClearCart" 
-                      method="post" class="mt-2">
+                <form method="post" action="/Cart/Clear" class="mt-2">
                     <button type="submit" class="btn btn-outline-danger w-100">
                         Clear Cart
                     </button>
