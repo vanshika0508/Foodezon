@@ -98,7 +98,7 @@ namespace Foodezon.Api.Controllers
             // Create Order
             var request = new CheckoutRequestDto
             {
-                UserId = userId,
+                //UserId = userId,
                 DiscountCode = string.IsNullOrWhiteSpace(model.DiscountCode) ? null : model.DiscountCode.Trim(),
                 DeliveryAddress = model.Address,
                 PhoneNumber = model.PhoneNumber
