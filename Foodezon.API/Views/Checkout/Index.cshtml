@@ -7,9 +7,39 @@
 <div class="page-overlay">
 <div class="container py-5">
 
-    <h1 class="fw-bold text-center mb-5" style="color:#ff7a00; font-size:2.8rem;">
-        Checkout
-    </h1>
+    @if (Model.OrderPlaced == true)
+    {
+        <h1 class="fw-bold text-center mb-5" style="color:#ff7a00; font-size:2.8rem;">
+            Order Confirmed 🎉
+        </h1>
+
+        <div class="card p-4 mb-4 shadow-lg"
+             style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,122,0,0.45);">
+            
+            <h3 class="fw-bold mb-3" style="color:#ffb36b;">Order Details</h3>
+            <hr />
+
+            <p class="text-light fs-5">
+                <strong>Order Number:</strong> @Model.OrderNumber
+            </p>
+
+            <p class="text-light fs-5">
+                <strong>Total Paid:</strong> $@Model.FinalTotal
+            </p>
+
+            <p class="text-light fs-5">
+                Your food is being prepared 🍽️
+            </p>
+        </div>
+
+        <div class="text-center">
+            <a href="/Menu" class="btn btn-warning fw-bold px-4 py-2">Back to Menu</a>
+        </div>
+
+        @* STOP the page here — do NOT show the form or cart *@
+        return;
+    }
+
 
     <!-- CART SUMMARY-->
     <div class="card p-4 mb-4 shadow-lg" 
@@ -75,17 +105,7 @@
             </button>
         </form>
 
-        @if (Model.OrderPlaced == true)
-        {
-            <div class="alert alert-success mt-4 text-center fs-5">
-                🎉 Order Successfully Placed!  
-                <br /><strong>Order ID:</strong> @Model.OrderNumber  
-                <br /><strong>Total Paid:</strong> $@Model.FinalTotal
-            </div>
-
-            <div class="text-center mt-3">
-                <a href="/Menu" class="btn btn-warning fw-bold">Back to Menu</a>
-            </div>
+       
         }
     </div>
 
