@@ -22,7 +22,8 @@ namespace Foodezon.Api.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet]
+        
+        [HttpGet("/Checkout")]
         public async Task<IActionResult> Index()
         {
             var userId = await GetOrCreateUserIdAsync();
@@ -57,7 +58,7 @@ namespace Foodezon.Api.Controllers
             return View(vm);
         }
 
-        [HttpPost]
+        [HttpPost("/Checkout")]
         public async Task<IActionResult> Index(CheckoutViewModel model)
         {
             var userId = await GetOrCreateUserIdAsync();
@@ -84,7 +85,7 @@ namespace Foodezon.Api.Controllers
                 return View(model);
             }
 
-            // Update user info
+            // Update user for checkout
             var user = await _context.Users.FirstAsync(u => u.Id == userId);
             var nameParts = (model.FullName ?? "").Trim().Split(' ', 2);
             user.FirstName = nameParts.Length > 0 ? nameParts[0] : "Guest";
@@ -94,26 +95,47 @@ namespace Foodezon.Api.Controllers
             user.Address = model.Address;
             await _context.SaveChangesAsync();
 
-            // Create order via service
+            // Create Order
             var request = new CheckoutRequestDto
             {
                 UserId = userId,
-                DiscountCode = string.IsNullOrWhiteSpace(model.DiscountCode)
-                    ? null
-                    : model.DiscountCode.Trim(),
+                DiscountCode = string.IsNullOrWhiteSpace(model.DiscountCode) ? null : model.DiscountCode.Trim(),
                 DeliveryAddress = model.Address,
                 PhoneNumber = model.PhoneNumber
             };
 
             var order = await _orderService.CheckoutAsync(request);
 
-            // Show confirmation (cash on delivery)
+            // Success
             model.OrderPlaced = true;
             model.OrderNumber = order.OrderNumber;
             model.FinalTotal = order.TotalAmount;
-            model.Cart = new CartViewModel(); // clear display
+            model.Cart = new CartViewModel(); // Clear cart
 
             return View(model);
+        }
+
+        
+
+        [HttpPost("api/checkout")]
+        public async Task<IActionResult> CheckoutApi([FromBody] CheckoutRequestDto request)
+        {
+            try
+            {
+                var order = await _orderService.CheckoutAsync(request);
+                return Ok(order);  
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet("api/checkout/{userId:int}")]
+        public async Task<IActionResult> GetCheckoutCart(int userId)
+        {
+            var cart = await _cartService.GetCartForUserAsync(userId);
+            return Ok(cart);
         }
     }
 }

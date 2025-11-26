@@ -5,124 +5,135 @@
     ViewData["BodyClass"] = "home-page"; 
 }
 
-<!-- FULL WIDTH WRAPPER -->
-<div style="width: 100%; padding-left: 0; margin-left: 0;">
+<div class="page-overlay">
 
-    <div class="d-flex justify-content-start" style="padding-left:0; margin-left:0;">
-        <div class="home-overlay" 
-             style="max-width: 600px; margin-left:0; padding-left:25px; border-radius: 20px;">
+    <div style="width: 100%; padding-left: 0; margin-left: 0;">
 
-            <!-- TITLE -->
-            <h1 class="display-4 fw-bold" style="color:#ff7a00; margin-top: 10px;">
-                Craving Indian Food?
-            </h1>
+        <div class="d-flex justify-content-start" style="padding-left:0; margin-left:0;">
+            <div class="home-overlay" 
+                 style="max-width: 600px; margin-left:0; padding-left:25px; border-radius: 20px;">
 
-            <!-- TAGLINE -->
-            <p class="lead fw-bold" style="color:#cc6200; font-size: 1.3rem;">
-                Order fresh, authentic Indian dishes delivered right to your door.
-            </p>
-            
-            <!-- SEARCH BAR -->
-            <form method="get" asp-action="Index" class="my-4">
-                <div class="input-group input-group-lg">
-                    <input type="text"
-                           class="form-control"
-                           name="searchTerm"
-                           value="@Model.SearchTerm"
-                           placeholder="Search for dishes (e.g. Paneer, Biryani, Chai)..." />
-                    <button class="btn btn-danger" type="submit">Search</button>
-                </div>
-            </form>
+                <!-- TITLE -->
+                <h1 class="display-4 fw-bold" style="color:#ff7a00; margin-top: 10px;">
+                    Craving Indian Food?
+                </h1>
 
-            <!-- CATEGORIES -->
-            <h3 class="mb-3" style="color:#cc6200;">Popular Categories</h3>
+                <!-- TAGLINE -->
+                <p class="lead fw-bold" style="color:#cc6200; font-size: 1.3rem;">
+                    Order fresh, authentic Indian dishes delivered right to your door.
+                </p>
 
-            <div class="d-flex gap-3 flex-wrap mb-4">
-
-                @foreach (var cat in Model.Categories)
-                {
-                    var name = cat.Name?.Trim().ToLower() ?? "";
-
-                     <a href="/Menu#@name" style="text-decoration:none; color:inherit;">
-                          <div class="card shadow-sm border-0"
-                             style="width: 150px; background: white; border-radius: 15px;">
-                             <div class="card-body text-center">
-
-                            <!-- ICON SELECTION (WORKS FOR ANY SPELLING) -->
-                            @if (name.Contains("beverage") || name.Contains("drink"))
-                            {
-                                <i class="bi bi-cup-hot-fill" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-                            else if (name.Contains("main"))
-                            {
-                                <i class="bi bi-egg-fried" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-                            else if (name.Contains("appet"))
-                            {
-                                <i class="bi bi-emoji-smile-fill" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-                            else if (name.Contains("dess") || name.Contains("sweet"))
-                            {
-                                <i class="bi bi-cake2-fill" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-                            else if (name.Contains("bread") || name.Contains("roti") || name.Contains("naan"))
-                            {
-                                <i class="bi bi-basket-fill" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-                            else
-                            {
-                                <i class="bi bi-star-fill" style="font-size:40px; color:#ff7a00;"></i>
-                            }
-
-                            <!-- CATEGORY NAME -->
-                            <h6 class="mt-2 fw-bold" style="color:#cc6200;">@cat.Name</h6>
-
-                        </div>
+                <!-- SEARCH BOX -->
+                <form method="get" asp-action="Index" class="my-4">
+                    <div class="input-group input-group-lg">
+                        <input type="text"
+                               class="form-control"
+                               name="searchTerm"
+                               value="@Model.SearchTerm"
+                               placeholder="Search for dishes (Paneer, Biryani, Chai...)" />
+                        <button class="btn btn-danger" type="submit">Search</button>
                     </div>
-                    </a>
+                </form>
+
+                <!-- CATEGORIES -->
+                <h3 class="mb-3" style="color:#cc6200;">Popular Categories</h3>
+
+                <div class="d-flex gap-3 flex-wrap mb-4">
+
+                    @foreach (var cat in Model.Categories)
+                    {
+                        var name = cat.Name?.Trim().ToLower() ?? "";
+
+                        <a href="/Menu#@name" style="text-decoration:none;">
+                            <div class="card shadow-sm border-0"
+                                 style="width: 150px; background: white; border-radius: 15px;">
+                                <div class="card-body text-center">
+
+                                    <!-- CATEGORY ICONS -->
+                                    @if (name.Contains("beverage")) { <i class="bi bi-cup-hot-fill" style="font-size:40px; color:#ff7a00;"></i> }
+                                    else if (name.Contains("main")) { <i class="bi bi-egg-fried" style="font-size:40px; color:#ff7a00;"></i> }
+                                    else if (name.Contains("appet")) { <i class="bi bi-emoji-smile-fill" style="font-size:40px; color:#ff7a00;"></i> }
+                                    else if (name.Contains("dess") || name.Contains("sweet")) { <i class="bi bi-cake" style="font-size:40px; color:#ff7a00;"></i> }
+                                    else if (name.Contains("bread") || name.Contains("naan") || name.Contains("roti")) { <i class="bi bi-basket-fill" style="font-size:40px; color:#ff7a00;"></i> }
+                                    else { <i class="bi bi-star-fill" style="font-size:40px; color:#ff7a00;"></i> }
+
+                                    <h6 class="mt-2 fw-bold" style="color:#cc6200;">@cat.Name</h6>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                </div>
+
+
+                <!-- SEARCH RESULTS WITH QUANTITY + ADD TO CART -->
+                @if (Model.SearchResults.Any())
+                {
+                    <h3 class="mt-4" style="color:#ff7a00;">Search Results</h3>
+
+                    <div class="row g-4 mt-2">
+
+                        @foreach (var dish in Model.SearchResults)
+                        {
+                            <div class="col-md-4">
+                                <div class="dish-card shadow-lg">
+
+                                    @if (!string.IsNullOrEmpty(dish.ImageUrl))
+                                    {
+                                        <img src="@dish.ImageUrl" class="dish-img" />
+                                    }
+
+                                    <div class="p-3 d-flex flex-column">
+
+                                        <h5 class="dish-name">@dish.Name</h5>
+                                        <p class="dish-desc">@dish.Description</p>
+                                        <p class="dish-price">$@dish.Price</p>
+
+                                        <!-- Quantity Counter -->
+                                        <div class="d-flex align-items-center mb-3">
+                                            <button type="button" class="qty-btn" data-target="qty_s_@dish.Id" data-change="-1">−</button>
+                                            <span id="qty_s_@dish.Id" class="qty-number">1</span>
+                                            <button type="button" class="qty-btn" data-target="qty_s_@dish.Id" data-change="1">+</button>
+                                        </div>
+
+                                        <!-- Add to Cart -->
+                                        <form method="post" action="/Cart/Add">
+                                            <input type="hidden" name="dishId" value="@dish.Id" />
+                                            <input type="hidden" id="qtyInput_s_@dish.Id" name="quantity" value="1" />
+
+                                            <button type="submit" class="add-btn" data-dish="@dish.Id">
+                                                Add To Cart
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 }
 
             </div>
-            <!-- VIEW MENU BUTTON BELOW CATEGORIES -->
-            <div class="mt-3 mb-4">
-                <a href="/Menu" class="btn btn-warning btn-lg fw-bold"
-                style="background-color:#ff7a00; border:none; color:white; border-radius:10px;">
-                    View Menu
-                </a>
-            </div>
-
-            <!-- SEARCH RESULTS -->
-            @if (Model.SearchResults.Any())
-            {
-                <h3 class="mt-5 mb-3" style="color:#cc6200;">Search Results</h3>
-                <div class="row">
-                    @foreach (var dish in Model.SearchResults)
-                    {
-                        <div class="col-md-6 mb-3">
-                            <div class="card shadow-sm border-0 h-100">
-
-                                @if (!string.IsNullOrEmpty(dish.ImageUrl))
-                                {
-                                    <img src="@dish.ImageUrl" class="card-img-top" alt="@dish.Name" />
-                                }
-
-                                <div class="card-body">
-                                    <h5 class="card-title" style="color:#cc6200;">@dish.Name</h5>
-                                    <p class="card-text">@dish.Description</p>
-                                    <p class="fw-bold">$@dish.Price</p>
-
-                                    <form asp-controller="Menu" asp-action="AddToCart" method="post">
-                                        <input type="hidden" name="dishId" value="@dish.Id" />
-                                        <button class="btn btn-danger btn-sm">Add to Cart</button>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
-
         </div>
     </div>
+
 </div>
+
+
+
+
+<script>
+    document.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            let target = document.getElementById(this.dataset.target);
+            let dishId = this.dataset.target.replace("qty_s_", "");
+            let input = document.getElementById("qtyInput_s_" + dishId);
+
+            let qty = parseInt(target.textContent) + parseInt(this.dataset.change);
+            if (qty < 1) qty = 1;
+
+            target.textContent = qty;
+            input.value = qty;
+        });
+    });
+</script>
+
