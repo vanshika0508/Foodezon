@@ -1,14 +1,16 @@
 @model Foodezon.Core.Models.Dish
 
 @{
-    ViewBag.Title = "Create Dish";
+    ViewBag.Title = "Edit Dish";
     var categories = ViewBag.Categories as List<Foodezon.Core.Models.Category>;
 }
 
-<h2>Create Dish</h2>
+<h2>Edit Dish</h2>
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(m => m.DishId)
+
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -17,7 +19,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Details)
-        @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Details, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Details)
     </div>
 
@@ -38,5 +40,5 @@
         @Html.ValidationMessageFor(m => m.Price)
     </div>
 
-    <button type="submit" class="btn btn-success">Create</button>
+    <button type="submit" class="btn btn-success">Save Changes</button>
 }
