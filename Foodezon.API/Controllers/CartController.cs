@@ -15,7 +15,8 @@ namespace Foodezon.Api.Controllers
             _cartService = cartService;
         }
 
-        
+
+
 
         [HttpGet("/Cart")]
         public async Task<IActionResult> Index()
@@ -59,48 +60,49 @@ namespace Foodezon.Api.Controllers
 
 
 
+       
+        [HttpGet("/api/cart/{userId:int}")]
         
-
-        [HttpGet("api/cart/{userId:int}")]
         public async Task<IActionResult> GetCartApi(int userId)
         {
             var cart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(cart); // JSON
+            return Ok(cart);
         }
 
-        [HttpPost("api/cart/add")]
+        
+        [HttpPost("/api/cart/add")]
         public async Task<IActionResult> AddToCartApi([FromBody] CartItemRequest request)
         {
-            var userId = request.UserId;
-            await _cartService.AddToCartAsync(userId, request.DishId, request.Quantity);
-            var updatedCart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(updatedCart);
+            await _cartService.AddToCartAsync(request.UserId, request.DishId, request.Quantity);
+            var updated = await _cartService.GetCartForUserAsync(request.UserId);
+            return Ok(updated);
         }
 
-        [HttpPost("api/cart/update")]
+        
+        [HttpPost("/api/cart/update")]
         public async Task<IActionResult> UpdateCartApi([FromBody] CartItemRequest request)
         {
-            var userId = request.UserId;
-            await _cartService.UpdateCartItemAsync(userId, request.DishId, request.Quantity);
-            var updatedCart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(updatedCart);
+            await _cartService.UpdateCartItemAsync(request.UserId, request.DishId, request.Quantity);
+            var updated = await _cartService.GetCartForUserAsync(request.UserId);
+            return Ok(updated);
         }
 
-        [HttpPost("api/cart/remove")]
+      
+        [HttpPost("/api/cart/remove")]
         public async Task<IActionResult> RemoveCartItemApi([FromBody] CartItemRequest request)
         {
-            var userId = request.UserId;
-            await _cartService.RemoveItemAsync(userId, request.DishId);
-            var updatedCart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(updatedCart);
+            await _cartService.RemoveItemAsync(request.UserId, request.DishId);
+            var updated = await _cartService.GetCartForUserAsync(request.UserId);
+            return Ok(updated);
         }
 
+        
         [HttpPost("/api/cart/clear")]
         public async Task<IActionResult> ClearCartApi([FromBody] int userId)
         {
             await _cartService.ClearCartAsync(userId);
-            var updatedCart = await _cartService.GetCartForUserAsync(userId);
-            return Ok(updatedCart);
+            var updated = await _cartService.GetCartForUserAsync(userId);
+            return Ok(updated);
         }
     }
 

@@ -22,7 +22,8 @@ namespace Foodezon.Api.Controllers
             _orderService = orderService;
         }
 
-        
+
+       
         [HttpGet("/Checkout")]
         public async Task<IActionResult> Index()
         {
@@ -44,7 +45,21 @@ namespace Foodezon.Api.Controllers
                 })
             };
 
-            var user = await _context.Users.FirstAsync(u => u.Id == userId);
+            // Ensure user exists
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null)
+            {
+                user = new Foodezon.Core.Models.User
+                {
+                    FirstName = "Guest",
+                    LastName = "",
+                    Email = $"guest_{Guid.NewGuid():N}@foodezon.local",
+                    PhoneNumber = "",
+                    Address = ""
+                };
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
 
             var vm = new CheckoutViewModel
             {
@@ -58,6 +73,8 @@ namespace Foodezon.Api.Controllers
             return View(vm);
         }
 
+
+       
         [HttpPost("/Checkout")]
         public async Task<IActionResult> Index(CheckoutViewModel model)
         {
@@ -85,8 +102,23 @@ namespace Foodezon.Api.Controllers
                 return View(model);
             }
 
-            // Update user for checkout
-            var user = await _context.Users.FirstAsync(u => u.Id == userId);
+            // Ensure user exists
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null)
+            {
+                user = new Foodezon.Core.Models.User
+                {
+                    FirstName = "Guest",
+                    LastName = "",
+                    Email = $"guest_{Guid.NewGuid():N}@foodezon.local",
+                    PhoneNumber = "",
+                    Address = ""
+                };
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
+
+            // Update user details from form
             var nameParts = (model.FullName ?? "").Trim().Split(' ', 2);
             user.FirstName = nameParts.Length > 0 ? nameParts[0] : "Guest";
             user.LastName = nameParts.Length > 1 ? nameParts[1] : "";
@@ -98,7 +130,7 @@ namespace Foodezon.Api.Controllers
             // Create Order
             var request = new CheckoutRequestDto
             {
-                //UserId = userId,
+                UserId = userId,
                 DiscountCode = string.IsNullOrWhiteSpace(model.DiscountCode) ? null : model.DiscountCode.Trim(),
                 DeliveryAddress = model.Address,
                 PhoneNumber = model.PhoneNumber
@@ -115,7 +147,6 @@ namespace Foodezon.Api.Controllers
             return View(model);
         }
 
-        
 
         [HttpPost("api/checkout")]
         public async Task<IActionResult> CheckoutApi([FromBody] CheckoutRequestDto request)
@@ -123,7 +154,7 @@ namespace Foodezon.Api.Controllers
             try
             {
                 var order = await _orderService.CheckoutAsync(request);
-                return Ok(order);  
+                return Ok(order);
             }
             catch (System.Exception ex)
             {
@@ -131,6 +162,8 @@ namespace Foodezon.Api.Controllers
             }
         }
 
+
+        
         [HttpGet("api/checkout/{userId:int}")]
         public async Task<IActionResult> GetCheckoutCart(int userId)
         {
