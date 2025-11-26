@@ -1,52 +1,93 @@
 @model Foodezon.Api.Models.ViewModels.CheckoutViewModel
 
-<h2>Checkout</h2>
+@{
+    ViewData["Title"] = "Checkout";
+}
 
-@if (Model.OrderPlaced)
-{
-    <div class="alert alert-success">
-        <h4>Order placed successfully!</h4>
-        <p>Your order number is <strong>@Model.OrderNumber</strong>.</p>
-        <p>Total amount (Cash on delivery): <strong>$@Model.FinalTotal</strong></p>
+<div class="page-overlay">
+<div class="container py-5">
+
+    <h1 class="fw-bold text-center mb-5" style="color:#ff7a00; font-size:2.8rem;">
+        Checkout
+    </h1>
+
+    <!-- CART SUMMARY-->
+    <div class="card p-4 mb-4 shadow-lg" 
+         style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,122,0,0.45);">
+
+        <h3 class="fw-bold mb-3" style="color:#ffb36b;">Order Summary</h3>
+        <hr />
+
+        @foreach (var item in Model.Cart.Items)
+        {
+            <p class="text-light fs-5">
+                🥘 <strong>@item.DishName</strong> — Qty: @item.Quantity  
+                <span style="color:#ffb36b"> $@item.UnitPrice x @item.Quantity </span>
+            </p>
+        }
+
+        <hr />
+        <h4 class="fw-bold mt-2">
+            Total:
+            <span style="color:#ff7a00;">
+                $@Model.Cart.Items.Sum(i => i.UnitPrice * i.Quantity).ToString("0.00")
+            </span>
+        </h4>
     </div>
 
-    <a class="btn btn-danger" asp-controller="Home" asp-action="Index">Back to Home</a>
-}
-else
-{
-    <p>Fill your delivery details and apply any available discount codes. Payment will be <strong>Cash on Delivery</strong>.</p>
 
-    <form method="post">
-        <div class="mb-3">
-            <label asp-for="FullName" class="form-label"></label>
-            <input asp-for="FullName" class="form-control" />
-            <span asp-validation-for="FullName" class="text-danger"></span>
-        </div>
 
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
+    <!-- CHECKOUT -->
+    <div class="card p-4 shadow-lg" 
+         style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,122,0,0.40);">
 
-        <div class="mb-3">
-            <label asp-for="PhoneNumber" class="form-label"></label>
-            <input asp-for="PhoneNumber" class="form-control" />
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
+        <h3 class="fw-bold mb-3 text-light">Delivery Information</h3>
+        <form method="post">
 
-        <div class="mb-3">
-            <label asp-for="Address" class="form-label"></label>
-            <textarea asp-for="Address" class="form-control"></textarea>
-            <span asp-validation-for="Address" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label class="form-label text-light">Full Name</label>
+                <input type="text" name="FullName" class="form-control" value="@Model.FullName" required />
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="DiscountCode" class="form-label"></label>
-            <input asp-for="DiscountCode" class="form-control" />
-            <span asp-validation-for="DiscountCode" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label class="form-label text-light">Email</label>
+                <input type="email" name="Email" class="form-control" value="@Model.Email" required />
+            </div>
 
-        <button type="submit" class="btn btn-danger">Place Order (Cash on Delivery)</button>
-    </form>
-}
+            <div class="mb-3">
+                <label class="form-label text-light">Phone Number</label>
+                <input type="text" name="PhoneNumber" class="form-control" value="@Model.PhoneNumber" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-light">Delivery Address</label>
+                <textarea name="Address" class="form-control" required>@Model.Address</textarea>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-light">Discount Code (optional)</label>
+                <input type="text" name="DiscountCode" class="form-control" placeholder="e.g. DIWALI10" />
+            </div>
+
+            <button type="submit" class="btn w-100 fw-bold"
+                    style="background:#ff7a00; color:white; font-size:1.3rem; padding:12px;">
+                Confirm Order & Place Delivery
+            </button>
+        </form>
+
+        @if (Model.OrderPlaced == true)
+        {
+            <div class="alert alert-success mt-4 text-center fs-5">
+                🎉 Order Successfully Placed!  
+                <br /><strong>Order ID:</strong> @Model.OrderNumber  
+                <br /><strong>Total Paid:</strong> $@Model.FinalTotal
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="/Menu" class="btn btn-warning fw-bold">Back to Menu</a>
+            </div>
+        }
+    </div>
+
+</div>
+</div>
