@@ -19,14 +19,15 @@
             padding: 0;
             min-height: 100vh;
 
-            background: url('/images/home-bg.png') no-repeat center center fixed !important;
-            background-size: cover !important;
+            background: url('/images/home-bg.png') ;
+            background-size: cover ;
+            background-repeat:no-repeat;
             background-attachment: fixed;
         }
 
        
         .page-overlay {
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(255,255,255,0.08);
             min-height: 100vh;
             padding-bottom: 50px;
         }
@@ -34,7 +35,7 @@
 
         
         .home-overlay {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
             padding: 30px;
             border-radius: 15px;
             margin-top: 40px;
@@ -57,6 +58,12 @@
             color: #ffe8d1 !important;
         }
 
+        
+        .menu-page * {
+            color: #ff7a00 !important;
+        }
+
+
 
        
         .menu-bg {
@@ -71,7 +78,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(255,255,255,0.08);
             backdrop-filter: blur(3px);
             z-index: 0;
         }
@@ -83,18 +90,18 @@
 
 
        
-        /* LIGHTER BORDER (updated as you requested) */
+        
         .dish-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(0,0,0,0.55);
             border-radius: 16px;
             overflow: hidden;
             transition: 0.3s ease;
-            border: 1px solid rgba(255, 122, 0, 0.20); /* lighter border */
+            border: 1px solid rgba(0,0,0,0.55); /* lighter border */
             backdrop-filter: blur(3px);
         }
 
         .dish-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.03);
             box-shadow: 0 0 25px rgba(255, 122, 0, 0.5);
         }
 
@@ -111,7 +118,7 @@
         }
 
         .dish-desc {
-            color: #ddd;
+            color: #dddddd05;
         }
 
         .dish-price {

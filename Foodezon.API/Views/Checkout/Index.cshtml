@@ -10,69 +10,87 @@
     @if (Model.OrderPlaced == true)
     {
         <h1 class="fw-bold text-center mb-5" style="color:#ff7a00; font-size:2.8rem;">
-            Order Confirmed 🎉
-        </h1>
+    Order Confirmed 🎉
+</h1>
 
-        <div class="card p-4 mb-4 shadow-lg"
-             style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,122,0,0.45);">
-            
-            <h3 class="fw-bold mb-3" style="color:#ffb36b;">Order Details</h3>
-            <hr />
+<div class="card p-4 mb-4 shadow-lg confirm-box">
 
-            <p class="text-light fs-5">
-                <strong>Order Number:</strong> @Model.OrderNumber
-            </p>
+    <h3 class="fw-bold mb-3" style="color:#ff7a00;">Order Details</h3>
+    <hr />
 
-            <p class="text-light fs-5">
-                <strong>Total Paid:</strong> $@Model.FinalTotal
-            </p>
+    <p class="text-light fs-5">
+        <strong>Order Number:</strong> @Model.OrderNumber
+    </p>
 
-            <p class="text-light fs-5">
-                Your food is being prepared 🍽️
-            </p>
-        </div>
+    <p class="text-light fs-5">
+        <strong>Total Paid:</strong> $@Model.FinalTotal
+    </p>
 
-        <div class="text-center">
-            <a href="/Menu" class="btn btn-warning fw-bold px-4 py-2">Back to Menu</a>
-        </div>
+    <p class="text-light fs-5">
+        Your food is being prepared 🍽️
+    </p>
+</div>
 
-        @* STOP the page here — do NOT show the form or cart *@
+<div class="text-center">
+    <a href="/Menu" class="btn btn-warning fw-bold px-4 py-2">Back to Menu</a>
+</div>
+
+<style>
+    .confirm-box {
+        background: rgba(0, 0, 0, 0.55) !important;               /* DARK like menu */
+        border: 1px solid rgba(255,122,0,0.45) !important;        /* ORANGE border */
+        border-radius: 12px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    }
+</style>
+
+
+       
         return;
     }
 
 
     <!-- CART SUMMARY-->
-    <div class="card p-4 mb-4 shadow-lg" 
-         style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,122,0,0.45);">
-
-        <h3 class="fw-bold mb-3" style="color:#ffb36b;">Order Summary</h3>
-        <hr />
-
-        @foreach (var item in Model.Cart.Items)
-        {
-            <p class="text-light fs-5">
-                🥘 <strong>@item.DishName</strong> — Qty: @item.Quantity  
-                <span style="color:#ffb36b"> $@item.UnitPrice x @item.Quantity </span>
-            </p>
-        }
-
-        <hr />
-        <h4 class="fw-bold mt-2">
-            Total:
-            <span style="color:#ff7a00;">
-                $@Model.Cart.Items.Sum(i => i.UnitPrice * i.Quantity).ToString("0.00")
-            </span>
-        </h4>
-    </div>
-
+    
 
 
     <!-- CHECKOUT -->
     <div class="card p-4 shadow-lg" 
-         style="background:rgba(255,255,255,0.15); border:1px solid rgba(255,122,0,0.40);">
+         style="background:rgba(0,0,0,0.15); border:1px solid rgba(0,0,0,0.40);">
 
         <h3 class="fw-bold mb-3 text-light">Delivery Information</h3>
         <form method="post">
+<div class="card p-4 mb-4 order-summary-box">
+
+    <h3 class="fw-bold mb-3" style="color:#ff7a00;">Order Summary</h3>
+    <hr />
+
+    @foreach (var item in Model.Cart.Items)
+    {
+        <p class="fs-5 text-light">
+            🥘 <strong>@item.DishName</strong> — Qty: @item.Quantity  
+            <span style="color:#ffb36b;"> $@item.UnitPrice x @item.Quantity </span>
+        </p>
+    }
+
+    <hr />
+
+    <h4 class="fw-bold mb-3 text-light">
+        Total:
+        <span style="color:#ff7a00;">
+            $@Model.Cart.Items.Sum(i => i.UnitPrice * i.Quantity).ToString("0.00")
+        </span>
+    </h4>
+</div>
+
+<style>
+    .order-summary-box {
+        background: rgba(0, 0, 0, 0.55) !important;      /* DARKER BOX */
+        border: 1px solid rgba(255,122,0,0.45) !important; /* ORANGE BORDER */
+        border-radius: 12px;
+        box-shadow: 0px 0px 12px rgba(0,0,0,0.5);
+    }
+</style>
 
             <div class="mb-3">
                 <label class="form-label text-light">Full Name</label>
@@ -100,7 +118,7 @@
             </div>
 
             <button type="submit" class="btn w-100 fw-bold"
-                    style="background:#ff7a00; color:white; font-size:1.3rem; padding:12px;">
+                    style="background:#ff7a00; color:black; font-size:1.3rem; padding:12px;">
                 Confirm Order & Place Delivery
             </button>
         </form>
