@@ -1,0 +1,31 @@
+@model IEnumerable<Foodezon.Core.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Add Category</a>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+
+@foreach (var c in Model)
+{
+    <tr>
+        <td>@c.Name</td>
+        <td>@c.Details</td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = c.CategoryId })" class="btn btn-warning btn-sm">Edit</a>
+            <a href="@Url.Action("Delete", new { id = c.CategoryId })" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+}
+</table>

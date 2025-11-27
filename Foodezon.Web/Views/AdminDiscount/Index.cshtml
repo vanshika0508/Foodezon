@@ -1,0 +1,31 @@
+@model IEnumerable<Foodezon.Core.Models.Discount>
+
+<h2>Discounts</h2>
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Add Discount</a>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Discount Code</th>
+        <th>Percentage</th>
+        <th>Dish</th>
+        <th>Active?</th>
+        <th></th>
+    </tr>
+
+@foreach (var d in Model)
+{
+    <tr>
+        <td>@d.DiscountCode</td>
+        <td>@d.Percentage %</td>
+        <td>@d.Dish?.Name</td>
+        <td>@(d.ActiveStatus ? "Yes" : "No")</td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = d.DiscountId })" class="btn btn-warning btn-sm">Edit</a>
+            <a href="@Url.Action("Delete", new { id = d.DiscountId })" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+}
+</table>

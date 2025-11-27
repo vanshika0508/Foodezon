@@ -1,0 +1,42 @@
+@model Foodezon.Core.Models.Dish
+
+@{
+    ViewBag.Title = "Create Dish";
+    var categories = ViewBag.Categories as List<Foodezon.Core.Models.Category>;
+}
+
+<h2>Create Dish</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Details)
+        @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Details)
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Category")
+        <select class="form-control" name="CategoryId">
+            <option value="">-- Select Category --</option>
+            @foreach (var c in categories)
+            {
+                <option value="@c.CategoryId">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+}
