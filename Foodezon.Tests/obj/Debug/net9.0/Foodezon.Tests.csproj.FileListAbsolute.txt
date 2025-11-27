@@ -157,3 +157,6 @@ C:\Users\vermv\Foodezon\Foodezon.Tests\obj\Debug\net9.0\refint\Foodezon.Tests.dl
 C:\Users\vermv\Foodezon\Foodezon.Tests\obj\Debug\net9.0\Foodezon.Tests.pdb
 C:\Users\vermv\Foodezon\Foodezon.Tests\obj\Debug\net9.0\Foodezon.Tests.genruntimeconfig.cache
 C:\Users\vermv\Foodezon\Foodezon.Tests\obj\Debug\net9.0\ref\Foodezon.Tests.dll
+c:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Tests\obj\Debug\net9.0\Foodezon.Tests.dll
+c:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Tests\obj\Debug\net9.0\refint\Foodezon.Tests.dll
+c:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Tests\obj\Debug\net9.0\Foodezon.Tests.pdb
