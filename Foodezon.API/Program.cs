@@ -24,6 +24,11 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
+builder.Services.AddScoped<IDishAdminService, DishAdminService>();
+
+builder.Services.AddScoped<ICategoryAdminService, CategoryAdminService>();
+
+builder.Services.AddScoped<IDiscountAdminService, DiscountAdminService>();
 
 builder.Services.AddControllersWithViews();
 
