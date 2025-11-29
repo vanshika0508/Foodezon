@@ -16,3 +16,21 @@ C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infras
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.genruntimeconfig.cache
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\ref\Foodezon.Infrastructure.dll
 C:\Users\vermv\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.sourcelink.json
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Infrastructure.deps.json
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Infrastructure.runtimeconfig.json
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Infrastructure.dll
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Infrastructure.pdb
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Core.dll
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\bin\Debug\net9.0\Foodezon.Core.pdb
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.AssemblyInfo.cs
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.sourcelink.json
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.3CA9A81E.Up2Date
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.dll
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\refint\Foodezon.Infrastructure.dll
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.pdb
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\Foodezon.Infrastructure.genruntimeconfig.cache
+C:\Users\brete\Fall 2025\Programming\ProgrammingProject\Foodezon Main\Foodezon\Foodezon\Foodezon.Infrastructure\obj\Debug\net9.0\ref\Foodezon.Infrastructure.dll
