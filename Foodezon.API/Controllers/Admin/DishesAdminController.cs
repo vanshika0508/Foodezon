@@ -1,3 +1,4 @@
+using Foodezon.Api.Models;
 using Foodezon.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,8 +26,8 @@ namespace Foodezon.Api.Controllers.Admin
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var categories = (await _categoryService.GetAllAsync()).Select(c => new SelectListItem(c.Name, c.Id.ToString()));
-            var vm = new DishFormViewModel {categories = categories};
+            var cats = (await _categoryService.GetAllAsync()).Select(c => new SelectListItem(c.Name, c.Id.ToString())).ToList();
+            var vm = new DishFormViewModel {Categories = cats};
             return View(vm);
         }
     }
