@@ -1,0 +1,29 @@
+@model IEnumerable<Foodezon.Core.Models.Discount>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Manage Discounts";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Discounts</h2>
+        <a class="btn btn-success" asp-action="Create">Create Discount</a>
+    </div>
+    <table class="table">
+        <thead><tr><th>Code</th><th>Percent</th><th>Valid</th><th>Active</th><th></th></tr></thead>
+        <tbody>
+        @foreach(var d in Model)
+        {
+            <tr>
+                <td>@d.code</td>
+                <td>@d.Percentage</td>
+                <td>@d.ValidFrom.ToShortDateString() - @d.ValidTo.ToShortDateString()</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@d.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@d.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

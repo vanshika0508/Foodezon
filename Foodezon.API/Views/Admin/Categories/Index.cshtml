@@ -1,0 +1,28 @@
+@model IEnumerable<Foodezon.Core.Models.Category>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Manage Categories";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Categories</h2>
+        <a class="btn btn-success" asp-action="Create">Create</a>
+    </div>
+    <table class="table">
+        <thead><tr><th>Name</th><th>Description</th><th></th></tr></thead>
+        <tbody>
+        @foreach(var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Description</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@c.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@c.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
