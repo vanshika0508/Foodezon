@@ -1,0 +1,15 @@
+@model Foodezon.Core.Models.Dish
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Delete Dish";
+}
+<div class="container mt-4" style="max-width:600px;"></div>
+    <h3>Delete Dish</h3>
+    <div class="card p-3"></div>
+        <p>Are you sure you want to delete? <strong>@Model.Name</strong>?</p>
+        <form method="post" asp-action="Delete"></form>
+            <button class="btn btn-danger">Yes, delete</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+</div>
