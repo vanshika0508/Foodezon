@@ -1,11 +1,10 @@
 using Foodezon.Infrastructure.Data;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Foodezon.Api.Controllers.Admin
 {
-    [Microsoft.AspNetCore.Mvc.Route("Admin/[controller]/[action]")]
+    [Route("Admin/[controller]/[action]")]
     public class AdminAuthController : Controller
     {
         private readonly ApplicationDbContext _context;

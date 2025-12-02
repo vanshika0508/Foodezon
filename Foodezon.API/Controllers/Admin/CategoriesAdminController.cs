@@ -1,12 +1,11 @@
 using Foodezon.Api.Models;
 using Foodezon.Core.Interfaces;
 using Foodezon.Core.Models;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Foodezon.Api.Controllers.Admin
 {
-    [Microsoft.AspNetCore.Components.Route("Admin/[controller]/[action]")]
+    [Route("Admin/[controller]/[action]")]
     public class CategoriesAdminController : AdminBaseController
     {
         private readonly ICategoryAdminService _categoryService;
