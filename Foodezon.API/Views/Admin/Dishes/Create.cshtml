@@ -1,0 +1,40 @@
+@model Foodezon.Api.Models.DishFormViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Dish";
+}
+<div class="container mt-4" style="max-width:800px">
+    <h3>Create Dish</h3>
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea asp-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row">
+            <div class="col">
+                <label class="form-label">Price</label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="col">
+                <label class="form-label">Category</label>
+                <input asp-for="CategoryId" asp-items="Model.Categories" class="form-select" />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+        <div class="form-check mb-3">
+            <input asp-for="IsAvailable" class="form-check-input" />
+            <label class="form-check-label">Is Available</label>
+        </div>
+        <button class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" />}

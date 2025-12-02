@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mJN2qXKWuEJ7/9BZ1m1fSBoQewTaBkokuhYxz8ac9+8=",
+  "Hash": "OzgwDeRClUEulEaTmULa4V1YcpfRvUnk+mC1xWoBnjU=",
   "Source": "Foodezon.API",
   "BasePath": "_content/Foodezon.API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Foodezon.API\\wwwroot",
       "Source": "Foodezon.API",
-      "ContentRoot": "c:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\",
       "BasePath": "_content/Foodezon.API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
+      "Identity": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
       "SourceId": "Foodezon.API",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\",
       "BasePath": "_content/Foodezon.API",
       "RelativePath": "images/home-bg#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -41,7 +41,7 @@
   "Endpoints": [
     {
       "Route": "images/home-bg.h82oux22nx.png",
-      "AssetFile": "c:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
+      "AssetFile": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -86,7 +86,7 @@
     },
     {
       "Route": "images/home-bg.png",
-      "AssetFile": "c:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
+      "AssetFile": "C:\\Users\\brete\\Fall 2025\\Programming\\ProgrammingProject\\Foodezon Main\\Foodezon\\Foodezon\\Foodezon.API\\wwwroot\\images\\home-bg.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
