@@ -7,7 +7,7 @@ using Microsoft.VisualBasic;
 
 namespace Foodezon.Api.Controllers.Admin
 {
-    //[Route("Admin/[controller]/[action]")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class DishesAdminController : AdminBaseController
     {
         private readonly IDishAdminService _dishService;
@@ -57,7 +57,7 @@ namespace Foodezon.Api.Controllers.Admin
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult>Edit(int id)
         {
             var dish = await _dishService.GetByIdAsync(id);
             if (dish == null) return NotFound();

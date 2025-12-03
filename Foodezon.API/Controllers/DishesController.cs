@@ -15,7 +15,6 @@ namespace Foodezon.Api.Controllers
             _dishService = dishService;
         }
 
-        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Description</label>
-            <textarea asp-for="Name" class="text-danger"></span>
+            <textarea asp-for="Description" class="form-control"></textarea>
         </div>
         <div class="mb-3 row">
             <div class="col">
@@ -22,7 +22,7 @@
             </div>
             <div class="col">
                 <label class="form-label">Category</label>
-                <input asp-for="CategoryId" asp-items="Model.Categories" class="form-select" />
+                <select asp-for="CategoryId" asp-items="Model.Categories" class="form-select"></select>
             </div>
         </div>
         <div class="mb-3">

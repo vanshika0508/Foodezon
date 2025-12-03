@@ -1,0 +1,25 @@
+@model Foodezon.Api.Models.CategoryFormViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Category";
+}
+<div class="container mt-4" style="max-width:800px">
+    <h3>Create Category</h3>
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-success" type="submit">Create</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" />}

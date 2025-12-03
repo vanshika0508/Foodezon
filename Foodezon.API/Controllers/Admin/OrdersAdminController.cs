@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Foodezon.Api.Controllers.Admin
 {
-    //[Route("Admin/[controller]/[action]")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class OrdersAdminController : AdminBaseController
     {
         private readonly ApplicationDbContext _context;

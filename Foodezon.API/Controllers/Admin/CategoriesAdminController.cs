@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Foodezon.Api.Controllers.Admin
 {
-    //[Route("Admin/[controller]/[action]")]
+    [Route("Admin/[controller]/[action]")]
     public class CategoriesAdminController : AdminBaseController
     {
         private readonly ICategoryAdminService _categoryService;

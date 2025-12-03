@@ -17,7 +17,7 @@
                 <td>@o.Status</td>
                 <td>@o.CreatedAt.ToString("g")</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@o.Id">Details</a>
+                    <a class="btn btn-sm btn-primary" href="/Admin/OrdersAdmin/Details/@o.Id">Details</a>
                 </td>
             </tr>
         }

@@ -5,13 +5,13 @@
 }
 <div class="container mt-4" style="max-width:900px;">
     <h3>Order @Model.OrderNumber</h3>
-    <p><strong>User:</strong> @Model.User?.FirstName @Model.User?.LastName (@Model.User?.Email)</p>
-    <p><strong>Address:</strong> @Model.DeliveryAddress</p>
-    <p><strong>Phone:</strong> @Model.PhoneNumber</p>
-    <p><strong>Status:</strong> @Model.Status</p>
-    <p><strong>Subtotal:</strong> $@Model.Subtotal</p>
-    <p><strong>Discount:</strong> $@Model.Discountamount (@Model.Discount?.code)</p>
-    <p><strong>Total:</strong> $@Model.TotalAmount</p>
+    <p><strong style="color:#333;">User:</strong><span style="color:#555;"> @Model.User?.FirstName @Model.User?.LastName (@Model.User?.Email)</span></p>
+    <p><strong style="color:#333;">Address:</strong><span style="color:#555;"> @Model.DeliveryAddress</span></p>
+    <p><strong style="color:#333;">Phone:</strong><span style="color:#555;"> @Model.PhoneNumber</span></p>
+    <p><strong style="color:#333;">Status:</strong><span style="color:#555;"> @Model.Status</span></p>
+    <p><strong style="color:#333;">Subtotal:</strong><span style="color:#555;"> $@Model.Subtotal</span></p>
+    <p><strong style="color:#333;">Discount:</strong><span style="color:#555;"> $@Model.Discountamount (@Model.Discount?.code)</span></p>
+    <p><strong style="color:#333;">Total:</strong><span style="color:#555;"> $@Model.TotalAmount</span></p>
     <table class="table">
         <thead><tr><th>Dish</th><th>Quantity</th><th>Unit</th><th>Line</th><th></th></tr></thead>
         <tbody>
@@ -26,5 +26,5 @@
         }
         </tbody>
     </table>
-    <a asp-action="Index" class="btn btn-secondary mt-3">Back to Orders</a>
+    <a class="btn btn-sm btn-primary" href="/Admin/OrdersAdmin/Index">Back to Index</a>
 </div>
