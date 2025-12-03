@@ -7,14 +7,8 @@ namespace Foodezon.Api.Controllers.Admin
     {
         private const string SessionAdminKey = "IsAdmin";
 
-        public override void OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext context)
+        public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var val = context.HttpContext.Session.GetInt32(SessionAdminKey);
-            if (!val.HasValue || val.Value != 1)
-            {
-                context.Result = new RedirectToActionResult("Login", "AdminAuth", new {area = ""});
-                return;
-            }
             base.OnActionExecuting(context);
         }
     }

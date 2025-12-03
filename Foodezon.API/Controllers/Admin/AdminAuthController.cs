@@ -1,3 +1,4 @@
+using Foodezon.Api.Models;
 using Foodezon.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,26 +23,28 @@ namespace Foodezon.Api.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                ModelState.AddModelError("", "Email is required");
-                return View();
-            }
+            if (!ModelState.IsValid)
+                return View(model);
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email.Trim().ToLower());
+            var email = model.Email?.Trim().ToLower();
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == email);
+
             if (user == null || user.Role != Core.Models.UserRole.Admin)
             {
-                ModelState.AddModelError("", "Could not find admin or user is not an admin.");
-                return View();
+                ModelState.AddModelError("", "Invalid admin credentials.");
+                return View(model);
             }
 
             HttpContext.Session.SetInt32(SessionAdminKey, 1);
             HttpContext.Session.SetInt32("AdminUserId", user.Id);
 
-            return RedirectToAction("Index", "Dashbaord", new {area = "", controller = "Dashboard"});
+            return RedirectToAction("Index", "Dashboard");
         }
+
 
         [HttpPost]
         public IActionResult Logout()

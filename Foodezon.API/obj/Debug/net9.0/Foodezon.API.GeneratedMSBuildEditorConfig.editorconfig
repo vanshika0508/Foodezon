@@ -36,28 +36,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Categories/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/CategoriesAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc0FkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Checkout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Discounts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRzXEluZGV4LmNzaHRtbA==
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/DiscountsAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRzQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Dishes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzXENyZWF0ZS5jc2h0bWw=
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/DishesAdmin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzQWRtaW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Dishes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzXERlbGV0ZS5jc2h0bWw=
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/DishesAdmin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzQWRtaW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Dishes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzXEluZGV4LmNzaHRtbA==
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/DishesAdmin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/DishesAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Home/Index.cshtml]
@@ -68,12 +72,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Orders/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXERldGFpbHMuY3NodG1s
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/OrdersAdmin/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzQWRtaW5cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Orders/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
+[C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/OrdersAdmin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/brete/Fall 2025/Programming/ProgrammingProject/Foodezon Main/Foodezon/Foodezon/Foodezon.API/Views/Shared/_Layout.cshtml]
