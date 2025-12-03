@@ -1,0 +1,30 @@
+@model Foodezon.Core.Models.Order
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Order Details";
+}
+<div class="container mt-4" style="max-width:900px;">
+    <h3>Order @Model.OrderNumber</h3>
+    <p><strong>User:</strong> @Model.User?.FirstName @Model.User?.LastName (@Model.User?.Email)</p>
+    <p><strong>Address:</strong> @Model.DeliveryAddress</p>
+    <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Subtotal:</strong> $@Model.Subtotal</p>
+    <p><strong>Discount:</strong> $@Model.Discountamount (@Model.Discount?.code)</p>
+    <p><strong>Total:</strong> $@Model.TotalAmount</p>
+    <table class="table">
+        <thead><tr><th>Dish</th><th>Quantity</th><th>Unit</th><th>Line</th><th></th></tr></thead>
+        <tbody>
+        @foreach(var i in Model.OrderItems)
+        {
+            <tr>
+                <td>@i.Dish?.Name</td>
+                <td>@i.Quantity</td>
+                <td>@i.UnitPrice.ToString("0.00")/td>
+                <td>@i.Quantity*i.UnitPrice.ToString("0.00")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Back to Orders</a>
+</div>
